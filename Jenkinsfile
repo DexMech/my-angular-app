@@ -34,6 +34,12 @@ pipeline {
                 sh 'ng build --configuration production'
             }
         }
+
+        stage('Deploy to GitHub Pages') {
+            steps {
+                sh 'ng deploy --base-href=/my-angular-app/ --no-silent'
+            }
+        }
     }
 
     post {
