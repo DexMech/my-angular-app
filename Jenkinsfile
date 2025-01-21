@@ -37,6 +37,8 @@ pipeline {
 
         stage('Deploy to GitHub Pages') {
             steps {
+                sh 'git config --global user.email "alex.junior.carlos23@gmail.com"'
+                sh 'git config --global user.name "Your Name"'
                 sh 'ng deploy --base-href=/my-angular-app/ --no-silent'
             }
         }
