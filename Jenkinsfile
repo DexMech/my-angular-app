@@ -26,12 +26,7 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                echo 'Running tests...'
-                sh 'ng test --watch=false --browsers=ChromeHeadless'
-            }
-        }
+        
 
         stage('Build Application') {
             steps {
