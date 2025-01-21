@@ -5,6 +5,10 @@ pipeline {
         nodejs 'node' // Nome configurado no Jenkins
     }
 
+    environment {
+        GITHUB_TOKEN = credentials('segredocoisado') // ID da credencial
+    }
+
     stages {
         stage('Install Dependencies') {
             steps {
@@ -40,6 +44,7 @@ pipeline {
                     timeout(time: 1, unit: 'MINUTES') {
                         sh 'git config --global user.email "alex.junior.carlos23@gmail.com"'
                         sh 'git config --global user.name "alex.silva"'
+                        sh 'git remote set-url origin https://${GITHUB_TOKEN}@github.com/dexmech/my-angular-app.git'
                         sh 'ng deploy --base-href=/my-angular-app/ --no-silent'
                 }
             }
