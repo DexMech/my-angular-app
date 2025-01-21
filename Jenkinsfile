@@ -36,10 +36,12 @@ pipeline {
         }
 
         stage('Deploy to GitHub Pages') {
-            steps {
-                sh 'git config --global user.email "alex.junior.carlos23@gmail.com"'
-                sh 'git config --global user.name "alex.silva"'
-                sh 'ng deploy --base-href=/my-angular-app/ --no-silent'
+            timeout(time: 1, unit: 'MINUTES') {
+                steps {
+                    sh 'git config --global user.email "alex.junior.carlos23@gmail.com"'
+                    sh 'git config --global user.name "alex.silva"'
+                    sh 'ng deploy --base-href=/my-angular-app/ --no-silent --verbose'
+                }
             }
         }
     }
