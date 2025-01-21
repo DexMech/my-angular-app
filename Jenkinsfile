@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'node' // Nome configurado no Jenkins
+    }
+
     stages {
         stage('Install Dependencies') {
             steps {
