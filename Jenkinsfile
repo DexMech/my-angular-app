@@ -10,9 +10,11 @@ pipeline {
             steps {
                 script {
                     // Garante que o Node.js está instalado
+
                     sh 'node -v'
                     sh 'npm -v'
                 }
+                sh 'npm install -g @angular/cli'
                 sh 'npm install'
             }
         }
